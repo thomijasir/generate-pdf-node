@@ -55,10 +55,10 @@ const pdfGenerator = async (config) => {
       printBackground: true,
       landscape: false,
       margin: {
-        top: '10px',
-        bottom: '5px',
-        left: '30px',
-        right: '30px',
+        top: '75px',
+        bottom: '55px',
+        left: '45px',
+        right: '45px',
       }
     }
   );
