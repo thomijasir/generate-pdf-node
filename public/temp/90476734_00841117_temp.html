@@ -1,0 +1,1232 @@
+<html>
+
+<head>
+  <title>Document PDF</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style>
+    @font-face {
+      font-family: "Prusw";
+      src: url(../fonts/Prusw___.ttf);
+    }
+
+    @font-face {
+      font-family: "Pruswi";
+      src: url(../fonts/Pruswi__.ttf);
+    }
+
+    @font-face {
+      font-family: "Prusb";
+      src: url(../fonts/Prusb___.ttf);
+    }
+
+    @font-face {
+      font-family: "Prusbi";
+      src: url(../fonts/Prusbi__.ttf);
+    }
+
+    @font-face {
+      font-family: "Prusd";
+      src: url(../fonts/Prusd___.ttf);
+    }
+
+    @font-face {
+      font-family: "Prusdi";
+      src: url(../fonts/Prusdi__.ttf);
+    }
+
+    @font-face {
+      font-family: "Prusm";
+      src: url(../fonts/Prusm___.ttf);
+    }
+
+    @font-face {
+      font-family: "Prusmi";
+      src: url(../fonts/Prusmi__.ttf);
+    }
+
+    .clearfix {
+      clear: both;
+      float: none;
+    }
+
+    .nopadding {
+      padding: 0;
+    }
+
+    .nomargin {
+      margin: 0;
+    }
+
+    .table-header-bold tr th {
+      font-weight: bold;
+    }
+
+    .table-text-center tr td {
+      text-align: center;
+    }
+
+    #ion-scroll-pdf {
+      margin: 0;
+      font-family: "Prusm";
+      line-height: 1.6;
+    }
+
+    #ion-scroll-pdf .xyz {
+      overflow-y: auto !important;
+      height: 100%;
+    }
+
+    #ion-scroll-pdf .fr {
+      float: right;
+    }
+
+    .fz-small {
+      font-size: 10px;
+    }
+
+    #ion-scroll-pdf .vmiddle {
+      vertical-align: middle;
+    }
+
+    #ion-scroll-pdf .center {
+      text-align: center;
+    }
+
+    #ion-scroll-pdf .left {
+      text-align: left;
+    }
+
+    #ion-scroll-pdf .italic {
+      font-style: italic;
+    }
+
+    #ion-scroll-pdf .p0 {
+      padding: 0;
+    }
+
+    #ion-scroll-pdf .m0 {
+      margin: 0;
+    }
+
+    #ion-scroll-pdf .content {
+      font-size: 14px;
+    }
+
+    #ion-scroll-pdf .content .red-bar {
+      padding: 10px;
+      font-size: 14px;
+      color: #fff;
+      background: red;
+    }
+
+    #ion-scroll-pdf .content .content-section {
+      font-size: 14px;
+    }
+
+    #ion-scroll-pdf .content .content-section table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #000;
+    }
+
+    #ion-scroll-pdf .content .content-section table.no-border td {
+      border: none;
+    }
+
+    #ion-scroll-pdf .content .content-section table th {
+      padding: 5px;
+      border: 1px solid #000;
+    }
+
+    #ion-scroll-pdf .content .content-section table td {
+      padding: 5px;
+      border: 1px solid #000;
+    }
+
+    #ion-scroll-pdf .content .content-section table th.red {
+      background: red;
+      color: white;
+    }
+
+    #ion-scroll-pdf .content .content-section table th.grey {
+      background: grey;
+      color: white;
+    }
+
+    #ion-scroll-pdf .content .content-section table .title {
+      font-size: 14px;
+    }
+
+    #ion-scroll-pdf .content .content-section .highlight-y {
+      padding: 10px;
+      background: yellow;
+    }
+
+    #ion-scroll-pdf .content .content-section ol {
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    #ion-scroll-pdf .content .content-section ol.list-inside {
+      padding-left: 25px;
+    }
+
+    #ion-scroll-pdf .content .content-section ol.alpha li {
+      list-style-type: lower-alpha;
+    }
+
+    #ion-scroll-pdf .content .content-section ol.romawi li {
+      list-style-type: lower-roman;
+    }
+
+    #ion-scroll-pdf .content .content-section ol.decimal li {
+      list-style-type: decimal;
+    }
+
+    #ion-scroll-pdf .content .content-section li {
+      font-style: normal;
+    }
+
+    #ion-scroll-pdf sup {
+      top: 0;
+    }
+
+    #ion-scroll-pdf .sign-text {
+      width: 90%;
+      text-align: center;
+      margin: 0;
+      margin-top: 10px;
+      border-top: 1px solid #000;
+      font-size: 10px;
+    }
+    .pagebreak {
+      page-break-before: always;
+    }
+    .footer-content {
+      border-top: #000 1px solid;
+      padding-top:5px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: "Prusm";
+      line-height: 1.6;
+    }
+    .mid-footer .wrapper {
+      display: flex;
+      flex-direction: row;
+    }
+    .mid-footer .wrapper .row {
+      display: flex;
+      flex-direction: column;
+    }
+    .mid-footer .wrapper .row .col {
+      margin: 5px;
+    }
+    .header-print, .header-space{
+      height: 50px;
+      width: 100%;
+      background: white;
+    }
+    .footer-print, .footer-space {
+      height: 80px;
+      width: 100%;
+      background: white;
+    }
+    .header-print {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    .header-content {
+      margin: 0 auto 20px;
+      border-bottom: 1px solid #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-content .logo {
+      width: 130px;
+      height: 40px;
+      background: url("../images/logo_pru.jpg") center center/100% no-repeat;
+    }
+    .wrapper-header {
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+    .footer-print {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+    .wrapper-footer {
+      padding-top: 10px;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    @page {
+      margin: 2mm
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <td>
+          <div class="header-space">&nbsp;</div>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div id="ion-scroll-pdf">
+            <div class="wrapper-container">
+              
+              <div class="content summaryOutput">
+                <div class="text-red">Berikut ini adalah Ringkasan Informasi Produk & Ilustrasi</div>
+                <div>Peserta Utama Yang Diasuransikan / Usia / Jenis Kelamin / Status Merokok : ARKA / 6 / Pria / Bukan Perokok
+                </div>
+                <div class="red-bar"> Kontribusi Berkala dan Kontribusi <span class="italic">Top-up</span> Berkala </div><br>
+                <div class="content-section">
+                  <div>
+                    <table width="100%" class="no-border">
+                      <tr>
+                        <td>
+                          <div class="title"> Total Kontribusi (Bulanan) </div>
+                          <div class="value"> Rp 500,000 </div>
+                        </td>
+                        <td>
+                          <div class="title"> Kontribusi Berkala (Bulanan) </div>
+                          <div class="value"> Rp 400,000 </div>
+                        </td>
+                        <td>
+                          <div class="title"> Kontribusi <span class="italic">Top-up</span> Berkala (<b>PRU</b><span
+                              class="italic">Saver Syariah</span>) </div>
+                          <div class="value"> Rp 100,000 </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          <div class="title"> Total Biaya Asuransi (Bulanan) </div>
+                          <div class="value"> Rp NaN </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">
+                          <p>Total biaya asuransi ini adalah biaya asuransi pada saat perubahan polis.</p>
+                          <p>Untuk keamanan dan kenyamanan transaksi sangat disarankan melakukan pembayaran Kontribusi melalui kartu
+                            kredit/kartu debit.</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="red-bar"> Perlindungan Untuk Peserta Utama Yang Diasuransikan </div><br>
+                <div class="content-section">
+                  <div class="content-section-inner"> <b>PRU</b>link syariah generasi baru<br>memberikan manfaat atas risiko
+                    kematian sampai dengan usia 99 tahun sebesar Rp 100,000,000. __saNew <br>Dalam hal Peserta Utama Yang
+                    Diasuransikan hidup sampai dengan Tanggal Akhir Kepesertaan, maka akan dibayarkan Saldo Unit <b>PRU</b>booster
+                    investasi (jika ada) dan tambahan sebesar Santunan Asuransi.<br><br><b>PRU</b>booster investasi<br>Tambahan
+                    alokasi investasi atas Kontribusi Berkala yang Anda bayarkan sebagaimana dijelaskan pada ketentuan
+                    <b>PRU</b>booster investasi.<br><br>
+                    <p><b>PRU</b>juvenile crisis cover syariah<br>memberikan tambahan manfaat sebesar Rp 50,000,000 apabila Peserta
+                      Utama Yang Diasuransikan menderita salah satu dari 32 Kondisi Kritis untuk anak-anak sebelum berusia 18 tahun.
+                    </p>
+                    <p><b>PRU</b>crisis cover benefit plus syariah 61<br>memberikan tambahan manfaat sebesar Rp 50,000,000 apabila
+                      Peserta Utama Yang Diasuransikan menderita salah satu dari 60 Kondisi Kritis atau meninggal dunia dan 10% dari
+                      Santunan Asuransi <b>PRU</b>crisis cover benefit plus syariah 61 untuk Kondisi Kritis tertentu, sebelum
+                      berusia 55 tahun.</p>
+                    <p><b>PRU</b>personal accident death & disablement syariah<br>memberikan tambahan manfaat sebesar Rp 100,000,000
+                      apabila Peserta Utama Yang Diasuransikan mengalami Cacat Tetap atau meninggal dunia akibat Kecelakaan sebelum
+                      berusia 65 tahun. Khusus untuk meninggal dunia karena Kecelakaan Tertentu, akan diberikan tambahan manfaat
+                      sebesar Rp 100,000,000.</p>
+                    <p><b>PRU</b>prime healthcare syariah<br>Perlindungan yang komprehensif terhadap risiko rawat inap termasuk
+                      perawatan intensif, pembedahan dan pengobatan sesuai plan yang dipilih berdasarkan Tabel Manfaat
+                      <b>PRU</b>prime healthcare syariah sampai dengan usia 55 tahun. Manfaat rawat inap akan diberikan maksimum
+                      sebesar Rp A /hari.</p>
+                    <p><b>PRU</b>critical hospital cover syariah<br>Perlindungan yang komprehensif terhadap risiko 12 Kondisi
+                      Kritis, mencakup biaya pada setiap tahap perawatan mulai dari pemeriksaan, Rawat Inap, rawat jalan, pemulihan,
+                      hingga pemantauan sesuai plan B yang dipilih berdasarkan Tabel Manfaat <b>PRU</b>critical hospital cover
+                      sampai dengan usia 55 tahun.</p>
+                    <p><b>PRU</b>total & permanent disablement syariah<br>Memberikan tambahan manfaat sebesar Rp 50,000,000 sampai
+                      dengan usia 70 tahun apabila Peserta Utama Yang Diasuransikan mengalami Cacat Total dan Tetap selama 180 hari
+                      kalender berturut-turut sejak didiagnosis oleh Dokter.</p>
+                    <p><b>PRU</b>early stage crisis cover plus syariah<br>memberikan tambahan manfaat sebesar Rp 50,000,000 apabila
+                      Peserta Utama Yang Diasuransikan menderita salah satu Kondisi Kritis tahap menengah atau tahap akhir sebelum
+                      berusia 55 tahun. Khusus untuk Kondisi Kritis tahap awal, manfaat yang diberikan adalah 50% dari Santunan
+                      Asuransi <b>PRU</b>early stage crisis cover plus syariah yang akan mengurangi manfaat untuk Kondisi Kritis
+                      tahap menengah atau akhir.</p>
+                    <p><b>PRU</b>med cover syariah<br>memberikan manfaat tunjangan harian rawat inap sebesar Rp 7.5 /hari, Perawatan
+                      Intensif dan pembedahan untuk Peserta Utama Yang Diasuransikan sebelum berusia 55 tahun.</p> <br><br>
+                  </div>
+                </div>
+                <div class="red-bar"> Alokasi Dana Investasi <b>PRU</b>link syariah Pilihan Anda </div><br>
+                <div class="content-section">
+                  <div>
+                    <table width="100%" class="no-border">
+                      <tr>
+                        <td>
+                          <div class="title">
+                            <div class="center"><b>Saldo Unit Kontribusi Berkala</b></div>
+                            <ul class="list-disk">
+                              <li>
+                                <p>100% <b>PRU</b>link Syariah Rupiah Equity Fund</p>
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="title">
+                            <div class="center"><b>Saldo Unit Kontribusi <span class="italic">Top-up</span></b></div>
+                            <ul class="list-disk">
+                              <li>
+                                <p>100% <b>PRU</b>link Syariah Rupiah Equity Fund</p>
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2">
+                          <p>- Manfaat asuransi di atas dapat diberikan selama Polis tetap aktif. Apabila Nilai Tunai yang terbentuk
+                            tidak mencukupi maka Rencana Masa Pembayaran Kontribusi bisa lebih panjang. Ada beberapa kondisi dimana
+                            manfaat asuransi tidak dapat dibayarkan. Pemegang Polis disarankan untuk membaca Polis Asuransi (apabila
+                            pengajuan disetujui) untuk mendapatkan informasi yang lengkap mengenai pengecualian manfaat ini.</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2">
+                          <p>Nama Agen : A.H OTTO NOORDRAVEN</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="pagebreak"></div>
+            <div class="wrapper-container substandard-output">
+              <div class="content subStandartOutput">
+                <section>
+                  <div class="content-section">
+                    <div>
+                      <div class="red-bar"> Surat Pernyataan Persetujuan Atas Keputusan <span class="italic">Substandard</span> Yang
+                        Diberikan Atas Polis Nomor: 90162794 </div><br>
+                      <div class="content-section-inside">
+                        <p> Saya, yang bertandatangan di bawah ini:<br> <b>Nama Pemegang Polis : ARKA</b><br> <span class="italic"
+                            style="font-size: 12px;">(mohon diisi dengan nama yang sama dengan yang tertulis di Kartu Identitas
+                            Diri)</span><br> telah sepenuhnya memahami penjelasan dari Agen/FSC saya mengenai keputusan <span
+                            class="italic">substandard</span> yang diberikan atas Polis Nomor: 90162794 <br>dan menyetujui bahwa:
+                          <ol type="1">
+                            <li>Jenis Asuransi, Besar Santunan Asuransi, Jangka Waktu, Manfaat Asuransi, Besar Kontribusi, dan
+                              Manfaat Meninggal, beserta Ketentuan Tambahan yang akan berlaku pada Polis saya adalah yang sesuai
+                              dengan yang tertera di ilustrasi <span class="italic">substandard</span> terlampir, bukan seperti yang
+                              tertera pada Ilustrasi Standar/Formulir Perubahan Major yang sebelumnya.</li>
+                            <li>Ilustrasi <span class="italic">substandard</span> terlampir menggunakan usia berikutnya, sesuai
+                              dengan tanggal ilustrasi ini dibuat. Apabila ilustrasi ini diterima di Kantor Pusat pada waktu usia
+                              Peserta Yang Diasuransikan sudah berubah maka Endosemen akan diterbitkan dengan menggunakan usia
+                              Peserta Yang Diasuransikan yang terbaru.</li>
+                            <li>Surat pernyataan ini akan menjadi bagian yang tidak terpisahkan dari Polis saya.</li>
+                          </ol> <br> <br> <br> <b>Kode Substandard :</b><br> <br> <br> <br> <b>Ketentuan Tambahan :</b><br> </p>
+                      </div>
+                    </div>
+                  </div> <br>
+                </section>
+              </div>
+            </div>
+            <div class="pagebreak"></div>
+            <div class="wrapper-container product-summary-output">
+              <div class="content productSummaryOutput">
+                <section>
+                  <div class="red-bar"> Fasilitas Polis </div>
+                  <div class="content-section">
+                    <div class="content-section-inside">
+                      <table width="100%" class="no-border">
+                        <tr>
+                          <td>
+                            <div class="value">
+                              <ul class="list-disk">
+                                <li>Penambahan Dana (<span class="italic">Top-up</span>)</li>
+                                <li>Perubahan instruksi penempatan dana investasi <b>PRU</b>Link Syariah (<span
+                                    class="italic">Redirection</span>)</li>
+                                <li>Pengalihan unit dalam porsi investasi (<span class="italic">Switching</span>)</li>
+                                <li>Perubahan Kontribusi, Manfaat Asuransi seperti santunan asuransi dan asuransi tambahan</li>
+                              </ul>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="value">
+                              <ul class="list-disk">
+                                <li>Cuti kontribusi</li>
+                                <li>Penarikan Unit-Unit dalam porsi investasi (<span class="italic">Withdrawal</span>)</li>
+                                <li>Penebusan (<span class="italic">Surrender</span>)</li>
+                                <li>Pembagian surplus Dana <span class="italic">Tabarru</span> (<span class="italic">Surplus
+                                    Underwriting</span>)</li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </section>
+                <section>
+                  <div class="red-bar"> <span class="italic">Ujrah</span> </div><br>
+                  <div class="content-section">
+                    <div>
+                      <div class="content-section-inside"> <b>Kontribusi</b>
+                        <p> Sejumlah uang yang dibayarkan oleh Anda (atau pihak ketiga yang Anda tunjuk) kepada Prudential Indonesia
+                          sehubungan dengan diadakannya Polis, yang dapat terdiri dari:</p>
+                        <ul class="list-disk">
+                          <li>Kontribusi Berkala</li>
+                          <li>Kontribusi <span class="italic">Top-up</span> Berkala (<b>PRU</b>Saver syariah)</li>
+                          <li>Kontribusi <span class="italic">Top-up</span> Tunggal</li>
+                        </ul>
+                        <p> Kontribusi yang dibayar sudah termasuk <span class="italic">Ujrah</span> Akuisisi, <span
+                            class="italic">Ujrah</span> <span class="italic">Top-up</span>, <span class="italic">Ujrah</span>
+                          Administrasi, dan Biaya Asuransi. </p> <b><span class="italic">Ujrah</span> akuisisi terhadap Kontribusi
+                          Berkala</b>
+                        <table width="100%" border="1px">
+                          <tr>
+                            <td rowspan="2" class="vmiddle center">Kontribusi Berkala</td>
+                            <td class="vmiddle center">Tahun 1 </td>
+                            <td class="vmiddle center">Tahun 2 </td>
+                            <td class="vmiddle center">Tahun 3 </td>
+                            <td class="vmiddle center">Tahun 4 </td>
+                            <td class="vmiddle center">Tahun 5 </td>
+                            <td class="vmiddle center">&ge; Tahun 6 </td>
+                          </tr>
+                          <tr>
+                            <td class="vmiddle center">70%</td>
+                            <td class="vmiddle center">70%</td>
+                            <td class="vmiddle center">20%</td>
+                            <td class="vmiddle center">20%</td>
+                            <td class="vmiddle center">20%</td>
+                            <td class="vmiddle center">0%</td>
+                          </tr>
+                        </table>
+                        <p><span class="italic">Ujrah</span> akuisisi meliputi antara lain biaya pemeriksaan kesehatan, pengadaan
+                          Polis dan pencetakan dokumen, biaya lapangan, biaya pos dan telekomunikasi serta remunerasi karyawan dan
+                          Tenaga Pemasar.</p> <b><span class="italic">Ujrah</span> <span class="italic">Top-up</span></b>
+                        <p><span class="italic">Ujrah</span> <span class="italic">Top-up</span> dikenakan atas Kontribusi <span
+                            class="italic">Top-up</span> Berkala (<b>PRU</b>saver syariah) dan Kontribusi <span
+                            class="italic">Top-up</span> Tunggal sebesar 5% dan sisanya akan diinvestasikan dalam Dana Investasi
+                          <b>PRU</b>link syariah pilihan Anda.</p> <b><span class="italic">Iuran Tabarru&rsquo;</span></b>
+                        <p>Hibah dalam bentuk pemberian sejumlah uang dari satu Pemegang Polis kepada Dana <span
+                            class="italic">Tabarru</span>. Besarnya Iuran <span class="italic">Tabarru</span> adalah 50% dari Biaya
+                          Asuransi. Dana akan digunakan untuk keperluan tolong-menolong bila ada Peserta Yang Diasuransikan yang
+                          mengalami peristiwa yang ditanggung. <br><br><span>Khusus untuk Asuransi Tambahan <b>PRU</b>prime
+                            healthcare syariah, besar Iuran <span class="italic">Tabarru'</span> yang dikenakan adalah 70% dari
+                            Biaya Asuransi.</span> <br><br><span>Khusus untuk Asuransi Tambahan <b>PRU</b>critical hospital cover
+                            syariah dan <b>PRU</b>total & permanent disablement syariah, besar Iuran <span
+                              class="italic">Tabarru'</span> yang dikenakan adalah 40% dari Biaya Asuransi.</span><br> </p> <b><span
+                            class="italic">Ujrah</span> Pengelolaan Dana <span class="italic">Tabarru</span></b>
+                        <p><span class="italic">Ujrah</span> Pengelolaan Dana <span class="italic">Tabarru</span> sebesar 0%.</p>
+                        <b><span class="italic">Ujrah</span> Pengelolaan Risiko</b>
+                        <p> <span><span class="italic">Ujrah</span> Pengelolaan Risiko sebesar 50% dari Biaya Asuransi, kecuali
+                            ditentukan lain berdasarkan polis, yang dibebankan setiap bulan sejak Tanggal Mulai Kepesertaan.</span>
+                          <br><br><span>Khusus untuk Asuransi Tambahan <b>PRU</b>prime healthcare syariah, besar <span
+                              class="italic">ujrah</span> Pengelolaan Risiko yang dikenakan adalah 30% dari Biaya Asuransi.</span>
+                          <br><br><span>Khusus untuk Asuransi Tambahan <b>PRU</b>critical hospital cover syariah dan <b>PRU</b>total
+                            & permanent disablement syariah, besar <span class="italic">Ujrah</span> Pengelolaan Risiko yang
+                            dikenakan adalah 60% dari Biaya Asuransi.</span><br> </p> <b>Biaya Asuransi</b>
+                        <p>Biaya yang akan dikenakan selama Polis aktif dan besarnya bergantung di antaranya pada riwayat kesehatan,
+                          usia, jenis kelamin, status merokok dan besarnya Santunan Asuransi. Biaya Asuransi diambil dari Saldo Unit
+                          Kontribusi Berkala terlebih dahulu, apabila tidak mencukupi, maka Biaya Asuransi akan diambil dari Saldo
+                          Unit Kontribusi <span class="italic">Top-up</span>.<br><br> <span>Kontribusi dan Biaya Asuransi untuk
+                            produk asuransi <b>PRU</b>link syariah generasi baru tergantung pada usia, jenis kelamin, Santunan
+                            Asuransi dan dapat berubah sewaktu-waktu sebagai penyesuaian atas, termasuk namun tidak terbatas pada
+                            pengalaman klaim, tingkat inflasi dan manfaat asuransi tambahan yang dipilih oleh Pemegang Polis.</span>
+                        </p><br> <b><span class="italic">Ujrah</span> Administrasi</b>
+                        <table width="50%" border="1px" style="text-align:center;" class="table-text-center table-header-bold">
+                          <tr>
+                            <th>Frekuensi Pembayaran</th>
+                            <th><span class="italic">Ujrah</span> Administrasi Per Bulan</th>
+                          </tr>
+                          <tr>
+                            <td>Tahunan</td>
+                            <td>Rp 20,000</td>
+                          </tr>
+                          <tr>
+                            <td>Setengah Tahunan</td>
+                            <td>Rp 30,000</td>
+                          </tr>
+                          <tr>
+                            <td>Tiga Bulanan</td>
+                            <td>Rp 37,500</td>
+                          </tr>
+                          <tr>
+                            <td>Bulanan</td>
+                            <td>Rp 45,000</td>
+                          </tr>
+                        </table>
+                        <p>Apabila Pemegang Polis memanfaatkan fasilitas <span class="italic">E-transaction</span> yaitu <span
+                            class="italic">E-Policy, E-Transaction Statement</span> dan menggunakan cara bayar <span
+                            class="italic">Autodebit</span> rekening tabungan maka Pemegang Polis <b>tidak akan dikenakan <span
+                              class="italic">Ujrah</span> Administrasi</b>. <br><span class="italic">Ujrah</span> Administrasi
+                          diambil dari Saldo Unit Kontribusi Berkala terlebih dahulu, apabila tidak mencukupi, maka <span
+                            class="italic">Ujrah</span> Administrasi akan dikenakan dari Saldo Unit Kontribusi <span
+                            class="italic">Top-up</span>.</p><br> <b><span class="italic">Ujrah</span> Penarikan & Penebusan
+                          Polis</b>
+                        <p><span class="italic">Ujrah</span> yang akan dikenakan apabila Pemegang Polis melakukan Penarikan (<span
+                            class="italic">withdrawal</span>) atas Saldo Unit Kontribusi Berkala atau Penebusan (<span
+                            class="italic">Surrender</span>) Polis pada periode tertentu.</p> <b>Besar biaya yang dikenakan = % x
+                          Saldo Unit Kontribusi Berkala</b>
+                        <table width="50%" border="1px" style="text-align:center;" class="table-text-center table-header-bold">
+                          <tr>
+                            <th>Tahun Polis</th>
+                            <th><span class="italic">Ujrah</span> Penarikan</th>
+                            <th><span class="italic">Ujrah</span> Penebusan</th>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td>75%</td>
+                            <td>75%</td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td>30%</td>
+                            <td>30%</td>
+                          </tr>
+                          <tr>
+                            <td>3 dst</td>
+                            <td>0%</td>
+                            <td>0%</td>
+                          </tr>
+                        </table> <br>
+                        <p> Dalam hal Penebusan (<span class="italic">Surrender</span>) diajukan dalam kurun waktu Polis <span
+                            class="italic">lapsed</span>, maka atas Penebusan tersebut akan dikenakan <span
+                            class="italic">Ujrah</span> Penebusan mengikuti tahun dimana Polis mulai berhenti berlaku atau <span
+                            class="italic">lapsed</span>. </p> <b><span class="italic">Ujrah</span> Pengalihan Dana Investasi
+                          <b>PRU</b></b>link Syariah <p>Bebas <span class="italic">Ujrah</span> Pengalihan Dana Investasi (<span
+                            class="italic">switching</span>) ditahun yang sama dengan maksimum 5 transaksi per tahun. <span
+                            class="italic">Ujrah</span> <span class="italic">switching</span> berikutnya di tahun Polis yang sama
+                          akan dikenakan biaya sebesar Rp 100.000/USD15 per transaksi.</p> <b>Pajak</b>
+                        <p>Pajak yang dikenakan atas penarikan atau penebusan Polis adalah sesuai dengan ketentuan peraturan
+                          perundang-undangan pajak yang berlaku, dan/atau setiap perubahannya sebagaimana dapat ditentukan oleh
+                          pemerintah Republik Indonesia dari waktu ke waktu.</p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section>
+                  <div class="red-bar"> Ringkasan Manfaat<br> (Hanya Untuk Ilustrasi. Keterangan Lengkap Mengenai Manfaat Asuransi
+                    Tiap Produk Asuransi, Termasuk Syarat-Syarat Dan Pengecualian Tercantum Pada Polis, Berlaku Dan Mengikat).
+                  </div><br>
+                  <div class="content-section">
+                    <div>
+                      <div class="content-section-inside">
+                        <p> __policyBasicProdSum __policyProdSum <table width="100%" border="1px">
+                            <tr>
+                              <th class="grey vmiddle">Jenis Manfaat</th>
+                              <th class="grey vmiddle center">Total Manfaat untuk menentukan jenis Medikal</th>
+                              <th class="grey vmiddle center">Total Manfaat untuk menentukan jenis Fakultatif</th>
+                            </tr>
+                            <tr>
+                              <td class="vmiddle">Meninggal</td>
+                              <td class="vmiddle center">0</td>
+                              <td class="vmiddle center">0</td>
+                            </tr>
+                            <tr>
+                              <td class="vmiddle">Additional CC</td>
+                              <td class="vmiddle center">0</td>
+                              <td class="vmiddle center">0 </td>
+                            </tr>
+                            <tr>
+                              <td class="vmiddle">ACC-CC</td>
+                              <td class="vmiddle center">0</td>
+                              <td class="vmiddle center">0 </td>
+                            </tr>
+                            <tr>
+                              <td class="vmiddle">Total CC</td>
+                              <td class="vmiddle center">0</td>
+                              <td class="vmiddle center">0 </td>
+                            </tr>
+                            <tr>
+                              <td class="vmiddle">TPD</td>
+                              <td class="vmiddle center">0</td>
+                              <td class="vmiddle center">0 </td>
+                            </tr>
+                            <tr>
+                              <td class="vmiddle">ADD/AD</td>
+                              <td class="vmiddle center">0</td>
+                              <td class="vmiddle center">0 </td>
+                            </tr>
+                            <tr>
+                              <td class="vmiddle">PPH</td>
+                              <td class="vmiddle center">1,000,000</td>
+                              <td class="vmiddle center">1,000,000</td>
+                            </tr>
+                            <tr>
+                              <td class="vmiddle">CHC</td>
+                              <td class="vmiddle center">Plan B</td>
+                              <td class="vmiddle center">Plan B</td>
+                            </tr>
+                            <tr>
+                              <td class="vmiddle">Besarnya UP</td>
+                              <td class="vmiddle center">0</td>
+                              <td class="vmiddle center">0</td>
+                            </tr>
+                            <tr>
+                              <td class="vmiddle">Jenis Pemeriksaan yang dibutuhkan*</td>
+                              <td colspan="2" class="vmiddle center">NML</td>
+                            </tr>
+                            <tr>
+                              <td class="vmiddle">Fakultatif untuk manfaat*</td>
+                              <td colspan="2" class="vmiddle center">Tidak Fakultatif</td>
+                            </tr>
+                            <tr>
+                              <td class="vmiddle">Total Penghasilan Rutin Peserta Utama Yang Diasuransikan per Bulan</td>
+                              <td colspan="2" class="vmiddle center">Tidak Berpenghasilan</td>
+                            </tr>
+                          </table>
+                          <p>
+                            <ul type="bullet">
+                              <li>* Ketentuan Fakultatif dan jenis pemeriksaan di atas hanya berdasarkan pada informasi yang ada
+                                dalam ilustrasi ini saja. Dalam hal terdapat informasi lain yang ditemukan ketika dilakukan proses
+                                <span class="italic">underwriting</span>, maka <span class="italic">underwriter</span> berhak
+                                mengubah ketentuan tersebut.</li>
+                            </ul>
+                          </p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section>
+                  <div class="red-bar"> <b>PRU</b>booster investasi </div><br>
+                  <div class="content-section">
+                    <div>
+                      <div class="content-section-inside">
+                        <p>Anda berhak mendapatkan <b>PRU</b>booster investasi sejak pembayaran Kontribusi Berkala pertama kali
+                          sebesar:</p>
+                        <table width="50%" border="1px" style="text-align:center;">
+                          <tr>
+                            <th class="red vmiddle center">Tahun Polis</th>
+                            <th class="red vmiddle center"><b>PRU</b>booster investasi</th>
+                          </tr>
+                          <tr>
+                            <td class="vmiddle center">1 - 10</td>
+                            <td class="vmiddle center">5% dari Kontribusi Berkala*</td>
+                          </tr>
+                          <tr>
+                            <td class="vmiddle center">11 dan Seterusnya</td>
+                            <td class="vmiddle center">10% dari Kontribusi Berkala*</td>
+                          </tr>
+                        </table>
+                        <p>* Dalam hal Polis memiliki manfaat <b>PRU</b>Booster Proteksi, maka <b>PRU</b>booster investasi akan
+                          diberikan untuk penyesuaian Kontribusi Berkala sebagai akibat dari kenaikan Santunan Asuransi secara
+                          otomatis. Kecuali, apabila terdapat perubahan mayor yang mengakibatkan perubahan Kontribusi Berkala, maka
+                          perubahan Kontribusi Berkala akibat dari perubahan mayor tersebut tidak berpengaruh terhadap
+                          <b>PRU</b>booster investasi.</p>
+                        <p><b>PRU</b>booster investasi akan dibayarkan sejak tahun pertama Polis ke dalam Saldo Unit
+                          <b>PRU</b>booster investasi dan akan terus berkembang sesuai dengan perkembangan Dana Investasi
+                          <b>PRU</b>Link Syariah pilihan Anda untuk Saldo Unit Kontribusi Berkala. Dalam hal terdapat perubahan
+                          instruksi penempatan dana investasi <b>PRU</b>Link Syariah (<span class="italic">Redirection</span>) pada
+                          Saldo Unit Kontribusi Berkala, maka hal ini juga akan berlaku untuk Saldo Unit <b>PRU</b>booster
+                          investasi. Namun, untuk Pengalihan unit dalam porsi investasi (<span class="italic">Switching</span>) pada
+                          Saldo Unit Kontribusi Berkala, tidak akan berpengaruh terhadap Saldo Unit <b>PRU</b>booster investasi.<br>
+                          Saldo Unit pada Saldo Unit <b>PRU</b>booster investasi akan dipindahkan secara otomatis ke dalam Saldo
+                          Unit Kontribusi Berkala dengan mengikuti jadwal sebagai berikut:</p>
+                        <table width="50%" border="1px" style="text-align:center;">
+                          <tr>
+                            <th class="red vmiddle center">Akhir Tahun Polis</th>
+                            <th class="red vmiddle center">Jumlah <b>PRU</b>booster investasi yang Dipindahkan ke Saldo Unit
+                              Kontribusi Berkala</th>
+                          </tr>
+                          <tr>
+                            <td class="vmiddle center">10 &amp; 15</td>
+                            <td class="vmiddle center">20%</td>
+                          </tr>
+                          <tr>
+                            <td class="vmiddle center">20 dan setiap akhir tahun polis berikutnya</td>
+                            <td class="vmiddle center">100%</td>
+                          </tr>
+                        </table>
+                        <p><b>PRU</b>booster investasi berhak Anda dapatkan selama Anda membayar Kontribusi tepat waktu dengan
+                          mengikuti ketentuan sebagai berikut:</p>
+                        <ol class="alpha">
+                          <li>Apabila Anda melakukan Cuti Kontribusi, maka Polis Anda tidak akan mendapatkan <b>PRU</b>booster
+                            investasi.</li>
+                          <li>Apabila Anda berhenti memanfaatkan fasilitas Cuti Kontribusi , dan melanjutkan membayar Kontribusi
+                            kembali, maka Polis Anda tidak berhak atas <b>PRU</b>booster investasi sampai dengan 12 bulan pembayaran
+                            Kontribusi setelah Polis berhenti Cuti Kontribusi .</li>
+                          <li>Apabila Polis Anda dipulihkan akibat Polis lewat waktu atau <span class="italic">lapsed</span>, Polis
+                            Anda berhak atas <b>PRU</b>booster investasi yang pernah didapatkan sebelumnya, namun Polis Anda tidak
+                            berhak mendapatkan <b>PRU</b>booster investasi sampai dengan 12 bulan pembayaran Kontribusi setelah
+                            tanggal pemulihan Polis.</li>
+                          <li>Apabila terdapat penarikan dari Saldo Unit Kontribusi Berkala maka Polis tidak berhak mendapatkan
+                            <b>PRU</b>booster investasi untuk periode 12 bulan pembayaran Kontribusi berikutnya terhitung sejak
+                            penarikan pada Saldo Unit Kontribusi Berkala.</li>
+                        </ol>
+                        <p>Dalam hal Peserta Utama Yang Diasuransikan meninggal dunia maka Saldo Unit <b>PRU</b>booster investasi
+                          (jika ada) akan dibayarkan bersamaan dengan Santunan Asuransi dan Saldo Unit Kontribusi Berkala (jika ada)
+                          serta Saldo Unit Kontribusi <span class="italic">Top-up</span> (jika ada). Dan apabila terjadi penebusan
+                          polis, maka Anda tidak berhak atas Nilai Tunai yang ada di Saldo Unit <b>PRU</b>booster investasi (Saldo
+                          Unit <b>PRU</b>booster investasi).</p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section>
+                  <div class="red-bar"> Hal yang menyebabkan Polis batal dan Manfaat Asuransi tidak dibayarkan </div><br>
+                  <div class="content-section">
+                    <div>
+                      <div class="content-section-inside">
+                        <ol>
+                          <li>Jika Anda tidak jujur atau tidak memberikan informasi dengan lengkap dalam mengisi antara lain data
+                            kesehatan, pekerjaan, ulang tahun dan hobi.</li>
+                          <li>Jika meninggal, cacat total tetap, cedera atau penyakit yang dialami Peserta Yang Diasuransikan
+                            disebabkan diantaranya oleh hal-hal sebagai berikut:<br>
+                            <ol class="romawi">
+                              <li>Tindakan bunuh diri, percobaan bunuh diri, dugaan bunuh diri atau pencederaan oleh Peserta Yang
+                                Diasuransikan;
+                              <li>Tindak kejahatan atau percobaan tindak kejahatan atau pelanggaran atau percobaan pelanggaran oleh
+                                pihak yang berkepentingan atas Polis;</li>
+                              <li>Pelanggaran atau percobaan pelanggaran peraturan perundang-undangan atau perlawanan yang dilakukan
+                                Peserta Yang Diasuransikan pada saat terjadinya penahanan atas diri seseorang (termasuk Peserta Yang
+                                Diasuransikan);</li>
+                              <li>Peserta Yang Diasuransikan turut dalam suatu penerbangan udara selain sebagai penumpang resmi atau
+                                awak pesawat dari maskapai penerbangan sipil komersial yang beroperasi dalam penerbangan rutin;</li>
+                              <li>Peserta Yang Diasuransikan turut serta dalam kegiatan atau olah raga berbahaya;</li>
+                              <li>Perang, ikut serta dalam huru-hara, pemogokan atau kerusuhan sipil; atau</li>
+                              <li>Peserta Yang Diasuransikan berada di bawah pengaruh atau terlibat penyalahgunaan narkotika,
+                                psikotropika, alkohol, racun, atau bahan-bahan sejenis.</li>
+                            </ol>
+                          </li>
+                        </ol>
+                        <p>Untuk hal lainnya yang dapat menyebabkan polis batal dan manfaat tidak dapat dibayarkan mengacu pada
+                          Polis.</p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section>
+                  <div class="red-bar"> Risiko yang perlu Anda ketahui </div><br>
+                  <div class="content-section">
+                    <div>
+                      <div class="content-section-inside">
+                        <ol>
+                          <li> Risiko Pasar<br> Risiko yang disebabkan oleh kondisi makro ekonomi yang kurang kondusif sehingga
+                            harga investasi mengalami penurunan dan akibat nilai unit yang dimiliki oleh Pemegang Polis dapat
+                            berkurang. </li>
+                          <li> Risiko Likuiditas<br> Risiko yang dapat terjadi jika aset investasi tidak dapat dengan segera
+                            dikonversi menjadi uang tunai atau pada harga yang sesuai, misalnya ketika terjadi kondisi pasar yang
+                            ekstrim atau ketika semua Pemegang Polis melakukan Penarikan (<span
+                              class="italic">withdrawal/surrender</span>) secara bersamaan. </li>
+                          <li> Risiko Ekonomi dan Perubahan Politik<br> Risiko yang berhubungan dengan perubahan kondisi ekonomi,
+                            kebijakan politik, hukum dan peraturan pemerintah yang berkaitan dengan dunia investasi dan usaha baik
+                            di dalam maupun luar negeri. </li>
+                          <li> Risiko Operasional<br> Risiko yang timbul dari proses internal yang tidak memadai/gagal, atau dari
+                            perilaku karyawan dan sistem operasional, atau dari peristiwa eksternal yang dapat mempengaruhi kegiatan
+                            operasional perusahaan. </li>
+                          <li> Risiko Kredit<br> Risiko yang berkaitan dengan kemampuan Prudential Indonesia dalam membayar
+                            kewajiban terhadap Nasabahnya. Prudential Indonesia terus mempertahankan kinerjanya untuk melebihi
+                            minimum kecukupan modal yang ditentukan oleh Pemerintah. </li>
+                          <li> Risiko Gagal Bayar<br> Risiko yang dapat terjadi jika pihak ketiga yang menerbitkan instrumen
+                            investasi mengalami wanprestasi (default) atau tidak mampu memenuhi kewajibannya untuk membayar pokok
+                            utang, bunga dan/atau dividen. </li>
+                          <li> Risiko Nilai Tukar<br> Risiko yang dapat terjadi jika investasi dilakukan dalam mata uang berbeda
+                            dengan mata uang yang digunakan untuk pembayaran kontribusi dan manfaat, mengingat nilai tukar dapat
+                            berfluktuasi mengikuti pasar </li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section>
+                  <div class="red-bar"> Cara Pengajuan Polis Asuransi </div><br>
+                  <div class="content-section">
+                    <div>
+                      <div class="content-section-inside">
+                        <p>Melengkapi dokumen yang diperlukan:</p>
+                        <ol class="romawi">
+                          <li>Surat Pengajuan Asuransi Jiwa (SPAJ) yang telah diisi dengan benar dan lengkap oleh Pemegang Polis
+                          </li>
+                          <li>Ilustrasi Manfaat Produk Asuransi yang telah ditandatangani oleh Pemegang Polis</li>
+                          <li>Fotokopi kartu identitas Pemegang Polis dan Peserta Yang Diasuransikan yang masih berlaku</li>
+                          <li>Bukti Pembayaran Kontribusi</li>
+                          <li>Dokumen-dokumen lain yang diperlukan oleh Prudential Indonesia</li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section>
+                  <div class="red-bar"> Kewajiban Pemegang Polis </div><br>
+                  <div class="content-section">
+                    <div>
+                      <div class="content-section-inside">
+                        <ol>
+                          <li>Memberikan informasi dengan benar dan lengkap serta memahami dokumen sebelum ditandatangani</li>
+                          <li>Membayar kontribusi tepat waktu sebelum jatuh tempo secara berkala, apabila Kontribusi tidak
+                            dibayarkan tepat waktu maka ada risiko status Polis Anda menjadi tidak aktif (<span
+                              class="italic">lapse</span>)</li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section>
+                  <div class="red-bar"> Cara Pengajuan Klaim </div><br>
+                  <div class="content-section">
+                    <div>
+                      <div class="content-section-inside">
+                        <ol>
+                          <li>Dapatkan Formulir Klaim dengan cara menghubungi Tenaga Pemasar Pemegang Polis atau <span
+                              class="italic">Customer Line</span> Prudential Indonesia, Formulir Klaim juga bisa diunduh di website
+                            kami www.prudential.co.id.</li>
+                          <li>Isi Formulir Klaim dengan benar dan lengkap dan mempersiapkan dokumen yang disyaratkan.</li>
+                          <li>Serahkan/Kirimkan Formulir Klaim beserta dokumen yang diperlukan baik secara langsung, melalui pos,
+                            atau melalui Tenaga Pemasar Pemegang Polis ke kantor pusat Prudential Indonesia.</li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section>
+                  <div class="red-bar"> Pusat Informasi dan Pelayanan Polis </div><br>
+                  <div class="content-section">
+                    <div>
+                      <div class="content-section-inside">
+                        <table width="100%" class="no-border">
+                          <tr>
+                            <td><span class="italic"><b>Customer Line</b></span></td>
+                            <td><b>Berkunjung ke Customer Care Centre Prudential Tower</b><br> Jalan Jenderal Sudirman Kav. 79
+                              Jakarta, 12910</td>
+                          </tr>
+                          <tr>
+                            <td>1500085 atau (021) - 1500085 melalui telepon seluler<br> Website: www.prudential.co.id<br> Email:
+                              customer.idn@prudential.co.id </td>
+                            <td><b>Mengakses informasi Polis melalui layanan <b>PRU</b>access dengan mengunjungi
+                                www.prudential.co.id</b></td>
+                          </tr>
+                        </table> <br>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section>
+                  <div class="red-bar"> Hal-Hal Penting </div><br>
+                  <div class="content-section">
+                    <div>
+                      <div class="content-section-inside">
+                        <ol>
+                          <li>Dengan adanya perubahan pada manfaat Polis maka besarnya Nilai Tunai yang terbentuk dapat Anda lihat
+                            pada Pernyataan Transaksi, <b>PRU</b>access dan Laporan Tahunan Unit Link.</li>
+                          <li>Penambahan asuransi tambahan dan peningkatan risiko sesuai dengan ketentuan usia masuk yang
+                            diperkenankan dan akan dilakukan <span class="italic">underwriting</span>/seleksi risiko ulang sehingga
+                            keputusannya dapat diterima dengan kondisi standard, substandard atau bahkan ditolak.</li>
+                          <li>Apabila perubahan disetujui sesuai dengan Ilustrasi yang dilampirkan, maka manfaat polis akan berubah
+                            sesuai dengan yang tercantum pada endosemen. Pastikan Anda menerima endosemen tersebut dan dilekatkan
+                            pada Polis.</li>
+                          <li>Untuk peningkatan manfaat Asuransi, maka akan terdapat pengenaan masa tunggu atas selisih peningkatan
+                            manfaat Asuransi tersebut sesuai dengan ketentuan yang tercantum pada Ringkasan Polis.</li>
+                          <li>Jika peningkatan atau penambahan manfaat Asuransi Tambahan dilakukan bersamaan dengan Pemulihan Polis,
+                            maka masa tunggu akan berlaku kembali sejak tanggal masa tunggu pemulihan atau tanggal effektif (mana
+                            yang paling akhir) peningkatan/penambahan manfaat Asuransi.</li>
+                          <li>Jika perubahan dengan peningkatan risiko maka usia yang digunakan adalah usia berikutnya pada saat
+                            pengajuan perubahan Major </li>
+                          <li>Jaminan Polis Tetap Berlaku akan berakhir apabila terdapat perubahan Polis yang mengakibatkan
+                            penurunan Kontribusi Berkala.</li>
+                          <li>Jika perubahan manfaat <b>PRU</b>hospital & surgical cover syariah plus/<b>PRU</b>prime healthcare
+                            syariah/<b>PRU</b>critical hospital cover syariah berlaku pada ulang bulan manfaat tersebut, maka
+                            Manfaat Asuransi yang baru akan dihitung secara proporsional sampai dengan ulang tahun berikutnya. Pada
+                            saat ulang tahun Asuransi Tambahan ((<b>PRU</b>hospital & surgical cover syariah plus/<b>PRU</b>prime
+                            healthcare syariah/<b>PRU</b>critical hospital cover syariah)) dan selanjutnya, manfaat tersebut akan
+                            berlaku secara penuh.</li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section>
+                  <div class="red-bar"> Catatan Penting Lainnya </div><br>
+                  <div class="content-section">
+                    <div>
+                      <div class="content-section-inside">
+                        <ul class="list-disk">
+                          <li>PT Prudential Life Assurance terdaftar dan diawasi oleh Otoritas Jasa Keuangan.</li>
+                          <li>Produk ini telah dilaporkan dan/atau memperoleh surat penegasan dan/atau persetujuan dari Otoritas
+                            Jasa Keuangan sesuai peraturan perundang-undangan yang berlaku.</li>
+                          <li>Definisi dan keterangan lebih lengkap dapat dipelajari pada Polis yang akan diterbitkan oleh
+                            Prudential Indonesia untuk Pemegang Polis jika pengajuan disetujui.</li>
+                          <li>Penjelasan pembebanan <span class="italic">ujrah</span> secara secara lengkap mengacu pada Ketentuan
+                            Umum dan Ketentuan Khusus <b>PRU</b>link syariah generasi baru. Ringkasan Informasi Produk dan/Ilustrasi
+                            ini adalah hanya sebagai referensi untuk memberikan penjelasan mengenai produk <b>PRU</b>link syariah
+                            generasi baru dan bukan sebagai Polis asuransi yang mengikat. Pemegang Polis wajib membaca dan memahami
+                            seluruh syarat dan ketentuan sebagaimana tercantum dalam Polis <b>PRU</b>link Syariah generasi baru.
+                          </li>
+                          <li>Produk ini dipasarkan oleh Tenaga Pemasar Prudential Indonesia yang telah terdaftar dan diawasi oleh
+                            Otaritas Jasa Keuangan.</li>
+                          </ol>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+            <div class="pagebreak"></div>
+            <div class="wrapper-container">
+              <div class="header">
+                <div class="logo"></div>
+                <div class="note-header fr fz-small">HALAMAN INI BUKAN MERUPAKAN BAGIAN DARI KONTRAK ASURANSI</div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="content dataOutput">
+                <section>
+                  <div class="content-section">
+                    <div>
+                      <table width="100%" border="1px">
+                        <tr>
+                          <th class="red" colspan="5">Data Pemegang Polis & Peserta Yang Diasuransikan</th>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td>Pemegang Polis</td>
+                          <td>Peserta Utama Yang Diasuransikan</td>
+                          <td>Peserta Tambahan Yang Diasuransikan 1</td>
+                          <td>Peserta Tambahan Yang Diasuransikan 2</td>
+                        </tr>
+                        <tr>
+                          <td>Nama</td>
+                          <td>ARKA</td>
+                          <td>ARKA</td>
+                          <td>RANGGAS</td>
+                          <td>JESSIE</td>
+                        </tr>
+                        <tr>
+                          <td>Usia Tahun Berikutnya</td>
+                          <td>7</td>
+                          <td>7</td>
+                          <td>30</td>
+                          <td>34</td>
+                        </tr>
+                        <tr>
+                          <td>Jenis Kelamin</td>
+                          <td>Pria</td>
+                          <td>Pria</td>
+                          <td>Pria</td>
+                          <td>Wanita</td>
+                        </tr>
+                        <tr>
+                          <td>Pekerjaan</td>
+                          <td>NSTN Bukan Pelajar atau Mahasiswa</td>
+                          <td>NSTN Bukan Pelajar atau Mahasiswa</td>
+                          <td>MGR Manajer (Admin)</td>
+                          <td>MCAS Pedagang</td>
+                        </tr>
+                        <tr>
+                          <td>Departemen</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Jabatan/Pangkat/Golongan</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>Kelas Pekerjaan</td>
+                          <td>1</td>
+                          <td>1</td>
+                          <td>1</td>
+                          <td>2</td>
+                        </tr>
+                        <tr>
+                          <td>Status Merokok</td>
+                          <td>Bukan Perokok</td>
+                          <td>Bukan Perokok</td>
+                          <td>Bukan Perokok</td>
+                          <td>Bukan Perokok</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div> <br>
+                </section>
+                <section>
+                  <div class="content-section">
+                    <div>
+                      <table width="100%">
+                        <tr>
+                          <th class="grey vmiddle left" rowspan="2">MANFAAT ASURANSI</th>
+                          <th class="grey vmiddle center" colspan="2">Sebelum Perubahan</th>
+                          <th class="grey vmiddle center" colspan="4">Setelah Perubahan</th>
+                        </tr>
+                        <tr>
+                          <th class="grey left">s.d Usia Peserta Yang Diasuransikan</th>
+                          <th class="grey left">Santunan Asuransi</th>
+                          <th class="grey left">s.d Usia Peserta Yang Diasuransikan</th>
+                          <th class="grey left">Santunan Asuransi</th>
+                          <th class="grey left">Biaya Asuransi Bulanan* </th>
+                          <th class="grey">Kontribusi Berkala** & Kontribusi <span class="italic">Top-up</span> Berkala (U11R
+                            <b>PRU</b>saver Syariah)</th>
+                        </tr>
+                        <tr>
+                          <td>Dasar</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>__premiBasic <tr>
+                          <td>Tambahan</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td>Kontribusi <span class="italic">Top-up</span> Berkala __prusaverBerkala<br><br>Total Kontribusi
+                            (Bulanan) __totalPremiumBerkala<br><br>Frekuensi Pembayaran (Bulanan)</td>
+                        </tr>__premiOther <tr>
+                          <td><b>Total biaya asuransi</b></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td><b>__totalBiaya</b></td>
+                          <td></td>
+                        </tr>__pruBoosterProteksiBasic__pruBoosterProteksiLinkTerm
+                      </table>
+                    </div>
+                  </div> <br>
+                </section>
+                <section>
+                  <div class="content-section">
+                    <div>
+                      <table width="100%" border="1px">
+                        <tr>
+                          <th colspan="2" class="grey" class="left">Alokasi Dana Investasi <b>PRU</b>link Syariah</th>
+                        </tr>
+                        <tr>
+                          <td><b>Saldo Unit Kontribusi Berkala</b></td>
+                          <td><b>Saldo Unit Kontribusi <span class="italic">Top-up</span></b></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p>100% <b>PRU</b>link Syariah Rupiah Equity Fund</p>
+                          </td>
+                          <td>
+                            <p>100% <b>PRU</b>link Syariah Rupiah Equity Fund</p>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </section>
+                <section> <br>
+                  <p><b>Mata Uang : IDR</b><br> * Merupakan biaya asuransi pada Usia saat pembebanan biaya asuransi untuk bulan
+                    berikutnya. Dari waktu ke waktu, Prudential Indonesia dapat mengubah biaya asuransi dengan mengikuti ketentuan
+                    pada Polis.<br> ** Merupakan Kontribusi Berkala saat pengajuan Polis. Jika Pemegang Polis memilih manfaat
+                    <b>PRU</b>booster proteksi, besar Kontribusi Berkala dapat berubah mengikuti kenaikan Santunan Asuransi secara
+                    otomatis.<br> - Informasi di atas merupakan bagian dari dasar penilaian <span class="italic">underwriter</span>
+                    dalam menerbitkan kontrak asuransi.<br> - Asumsi tinggi rendahnya tingkat hasil investasi hanya bertujuan untuk
+                    ilustrasi saja dan bukan merupakan tolak ukur untuk perhitungan rata-rata tingkat hasil investasi yang terendah
+                    dan tertinggi.<br> - Besarnya Nilai Tunai yang dibayarkan (bisa lebih besar atau lebih kecil dari yang
+                    diilustrasikan), akan bergantung pada perkembangan dari dana investasi <b>PRU</b>link Syariah.<br> - Jika
+                    pengajuan asuransi disetujui, semua risiko, kerugian dan manfaat yang dihasilkan dari investasi dalam program
+                    asuransi <b>PRU</b>link Syariah generasi baru ini akan sepenuhnya menjadi tanggung jawab Pemegang Polis.<br><br>
+                </section>
+                <section>
+                  <div class="content-section">
+                    <div class="content-section-inside">
+                      <p><b>DESKRIPSI PEKERJAAN</b><br>
+                        <table class="no-border">
+                          <tr>
+                            <td width="35%">Manajer (Admin)</td>
+                            <td>Mengatur dan memfasilitasi fungsi efisien dari kantor melalui berbagai tugas administratif, keuangan
+                              dan manajerial.</td>
+                          <tr>
+                          <tr>
+                            <td width="35%">Pedagang</td>
+                            <td>Orang yang melakukan perdagangan untuk memperoleh suatu keuntungan</td>
+                          <tr>
+                          <tr>
+                            <td width="35%">Bukan Pelajar atau Mahasiswa</td>
+                            <td>Tertanggung dengan usia antara 1 sampai dengan 15 tahun usia ulang tahun selanjutnya, dan tidak/
+                              belum bersekolah</td>
+                          <tr>
+                        </table> <br> <b>No SPAJ/Polis</b><br> 90162794 <br> <br> <br>
+                        <div class="substandart-data"><b>Substandard :</b>
+                          <table class="no-border">
+                            <tr></tr>
+                          </table>
+                        </div><br><br> <br> <b>Nama Agen : A.H OTTO NOORDRAVEN</b> <br> <br> <br>
+                      </p>
+                    </div>
+                  </div>
+                  <table>
+                    <tr>
+                      <td width="20%"><img
+                          src="data:image/jpeg;base64,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"
+                          class="absolute"></td>
+                      <td width="33%"> <br>
+                        <p class="center">Tanda Tangan Agen/FSC</p> <br> <br> <br> <br> <br>
+                        <p class="sign-text">Saya telah menjelaskan isi ilustrasi ini kepada Pemegang Polis</p>
+                      </td>
+                      <td width="33%">
+                        <p class="center">LAMPUNG TENGAH, 10 April 2019<br>Tanda Tangan Pemegang Polis</p> <br> <br> <br> <br> <br>
+                        <p class="sign-text">Saya telah memahami isi ilustrasi ini</p>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>
+          <div class="footer-space">&nbsp;</div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  <!-- Configuration HEADER & FOOTER -->
+  <div class="header-print">
+    <div class="wrapper-header">
+      <div class="header-content">
+        <div class="logo"></div>
+        <div class="head-text fz-small">HALAMAN INI BUKAN MERUPAKAN BAGIAN DARI KONTRAK ASURANSI</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-print">
+    <div class="wrapper-footer">
+      <div class="footer-content">
+        <div class="left-footer"><img style="max-height:60px"
+            src="data:image/gif;base64,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" />
+        </div>
+        <div class="mid-footer">
+          <div class="wrapper">
+            <div class="row" style="margin-right: 10px;">
+              <div class="col">Kode Agen: 90766971</div>
+              <div class="col">17060307</div>
+            </div>
+            <div class="row">
+              <div class="col">02/04/2019, 14:20:37</div>
+              <div class="col">vQFtJLDf</div>
+            </div>
+          </div>
+        </div>
+        <div class="right-footer">
+          <p>SQSv2.0.0</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,320 @@
+@font-face {
+  font-family: 'Prusw';
+  src: url(../../fonts/PRUsans/Prusw___.ttf);
+
+}
+@font-face {
+  font-family: 'Pruswi';
+  src: url(../../fonts/PRUsans/Pruswi__.ttf);
+
+}
+@font-face {
+  font-family: 'Prusb';
+  src: url(../../fonts/PRUsans/Prusb___.ttf);
+
+}
+@font-face {
+  font-family: 'Prusbi';
+  src: url(../../fonts/PRUsans/Prusbi__.ttf);
+}
+@font-face {
+  font-family: 'Prusd';
+  src: url(../../fonts/PRUsans/Prusd___.ttf);
+
+}
+@font-face {
+  font-family: 'Prusdi';
+  src: url(../../fonts/PRUsans/Prusdi__.ttf);
+
+}
+@font-face {
+  font-family: 'Prusm';
+  src: url(../../fonts/PRUsans/Prusm___.ttf);
+
+}
+@font-face {
+  font-family: 'Prusmi';
+  src: url(../../fonts/PRUsans/Prusmi__.ttf);
+
+}
+
+.clearfix {
+  clear: both;
+  float: none;
+}
+
+.nopadding {
+  padding: 0;
+}
+
+.nomargin {
+  margin: 0;
+}
+
+.table-header-bold tr th {
+  font-weight: bold;
+}
+
+.table-text-center tr td{
+  text-align: center;
+}
+
+#ion-scroll-pdf {
+  width: 760px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Prusm'
+}
+
+#ion-scroll-pdf.download {
+  position: absolute;
+  z-index: -999;
+  bottom: -9999px;
+}
+
+#ion-scroll-pdf .logo {
+  width: 130px;
+  height: 40px;
+  background: url("../../img/logo_pru.jpg") center center/100% no-repeat;
+  float: left;
+}
+#ion-scroll-pdf .note-header  {
+
+}
+#ion-scroll-pdf .xyz {
+  overflow-y: auto !important;
+  height: 100%;
+}
+
+#ion-scroll-pdf .wrapper-container {
+  border: 1px solid #000;
+  padding: 20px;
+  margin: 10px;
+}
+
+#ion-scroll-pdf.download .wrapper-container {
+  border: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+#ion-scroll-pdf .header {
+  border-bottom: 1px solid #000;
+  padding: 40px 0 20px;
+  margin: 0 auto 20px;
+  width: 96%;
+}
+
+#ion-scroll-pdf .fr {
+  float: right;
+}
+
+#ion-scroll-pdf .fz-small {
+  font-size: 10px;
+}
+
+#ion-scroll-pdf .vmiddle {
+  vertical-align: middle;
+}
+
+#ion-scroll-pdf .center{
+  text-align: center;
+}
+
+#ion-scroll-pdf .left{
+  text-align: left;
+}
+
+#ion-scroll-pdf .italic{
+  font-style: italic;
+  /* display: inline-block; */
+}
+
+#ion-scroll-pdf .p0 {
+  padding: 0;
+}
+
+#ion-scroll-pdf .m0 {
+  margin: 0;
+}
+
+#ion-scroll-pdf .content {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+#ion-scroll-pdf .content .red-bar{
+  padding: 10px;
+  font-size: 14px;
+  color: #fff;
+  background: red;
+}
+
+#ion-scroll-pdf .content .content-section {
+  font-size: 14px;
+}
+
+#ion-scroll-pdf .content .content-section table{
+  border-collapse:collapse;
+  border-spacing:0;
+  border: 1px solid #000;
+}
+
+#ion-scroll-pdf .content .content-section table.no-border td{
+  border: none;
+}
+
+#ion-scroll-pdf .content .content-section table th{
+  padding: 5px;
+  border: 1px solid #000;
+}
+
+#ion-scroll-pdf .content .content-section table td{
+  padding: 5px;
+  border: 1px solid #000;
+}
+
+#ion-scroll-pdf .content .content-section table th.red{
+  background: red;
+  color: white;
+}
+
+#ion-scroll-pdf .content .content-section table th.grey{
+  background: grey;
+  color: white;
+}
+
+#ion-scroll-pdf .content .content-section table .title{
+  font-size: 14px;
+}
+
+#ion-scroll-pdf .content .content-section .highlight-y{
+  padding: 10px;
+  background: yellow;
+}
+
+#ion-scroll-pdf .content .content-section ol{
+  margin: 0;
+  margin-bottom: 10px;
+}
+#ion-scroll-pdf .content .content-section ol.list-inside{
+  padding-left: 25px;
+}
+
+#ion-scroll-pdf .content .content-section ol.alpha li{
+  list-style-type: lower-alpha;
+}
+
+#ion-scroll-pdf .content .content-section ol.romawi li{
+  list-style-type: lower-roman;
+}
+
+#ion-scroll-pdf .content .content-section ol.decimal li{
+  list-style-type: decimal;
+}
+
+#ion-scroll-pdf .content .content-section li{
+  font-style: normal;
+}
+
+#ion-scroll-pdf .content .content-section ul.list-disk li{
+  list-style-type: disc;
+  margin-left: 15px;
+}
+
+#ion-scroll-pdf .content .content-section table.table-chc td[colspan="2"],
+#ion-scroll-pdf .content .content-section table.table-chc td[colspan="3"]{
+  text-align: center;
+}
+
+#ion-scroll-pdf sup {
+  top: 0;
+}
+
+#ion-scroll-pdf .sign-text {
+  width: 90%;
+  text-align:center;
+  margin:0;
+  margin-top: 10px;
+  border-top: 1px solid #000;
+  font-size: 10px;
+}
+
+#ion-scroll-pdf .footer {
+  border-top: 1px solid #000;
+  padding: 40px 0 20px;
+  margin: 0 auto 20px;
+  width: 96%;
+  font-size: 11px;
+}
+#canvasCont canvas{
+    margin: 0 auto;
+    width: 100%!important;
+    height: auto;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+    margin-bottom: 10px;
+}
+
+#ion-scroll-pdf
+{ width: 100%; height: 80vh;    overflow: hidden; z-index: 0; }
+@media only screen
+and (min-device-height: 1024px)
+and (-webkit-min-device-pixel-ratio: 1){
+    #ion-scroll-pdf
+    { width: 100%; height: 80vh;    overflow: hidden; z-index: 0; }
+
+    #ion-scroll-pdf .content .content-section ol.list-inside{
+      padding-left: 35px;
+    }
+
+}
+@media only screen
+and (min-device-height: 640px)
+and (-webkit-min-device-pixel-ratio: 1){
+    /* #ion-scroll-pdf
+    { width: 100%; height: 80vh;    overflow: hidden; z-index: 0; } */
+    #ion-scroll-pdf
+    { width: 100%; height: 80vh;    overflow: visible; z-index: 0; }
+    #ion-scroll-pdf .header {
+      padding: 0;
+    }
+}
+@media only screen
+and (max-width: 640px){
+    #ion-scroll-pdf .header {
+      padding: 0;
+      margin-bottom: 10px;
+    }
+    #ion-scroll-pdf .note-header  {
+      font-size: 3px;
+      position: relative;
+      top: 18px;
+    }
+    #ion-scroll-pdf .wrapper-container {
+      padding: 10px;
+    }
+    #ion-scroll-pdf p {
+      font-size: 12px;
+    }
+    #ion-scroll-pdf .content {
+      padding: 10px;
+      font-size: 12px;
+    }
+
+    #ion-scroll-pdf .content .red-bar {
+      font-size: 12px;
+    }
+
+    #ion-scroll-pdf .content .content-section {
+      font-size: 12px;
+    }
+
+    #ion-scroll-pdf .content .content-section table .title {
+      font-size: 12px;
+    }
+
+    #ion-scroll-pdf .content .content-section ol.list-inside{
+      padding-left: 25px;
+    }
+
+}

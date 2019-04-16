@@ -1,0 +1,342 @@
+<html>
+
+<head>
+  <title>Document PDF</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style>
+    @font-face {
+      font-family: 'Prusw';
+      src: url(../fonts/Prusw___.ttf);
+
+    }
+
+    @font-face {
+      font-family: 'Pruswi';
+      src: url(../fonts/Pruswi__.ttf);
+
+    }
+
+    @font-face {
+      font-family: 'Prusb';
+      src: url(../fonts/Prusb___.ttf);
+
+    }
+
+    @font-face {
+      font-family: 'Prusbi';
+      src: url(../fonts/Prusbi__.ttf);
+    }
+
+    @font-face {
+      font-family: 'Prusd';
+      src: url(../fonts/Prusd___.ttf);
+
+    }
+
+    @font-face {
+      font-family: 'Prusdi';
+      src: url(../fonts/Prusdi__.ttf);
+
+    }
+
+    @font-face {
+      font-family: 'Prusm';
+      src: url(../fonts/Prusm___.ttf);
+
+    }
+
+    @font-face {
+      font-family: 'Prusmi';
+      src: url(../fonts/Prusmi__.ttf);
+    }
+
+    .clearfix {
+      clear: both;
+      float: none;
+    }
+
+    .nopadding {
+      padding: 0;
+    }
+
+    .nomargin {
+      margin: 0;
+    }
+
+    .table-header-bold tr th {
+      font-weight: bold;
+    }
+
+    .table-text-center tr td {
+      text-align: center;
+    }
+
+    #ion-scroll-pdf {
+      margin: 0;
+      font-family: 'Prusm';
+      line-height: 1.6;
+    }
+
+    #ion-scroll-pdf .xyz {
+      overflow-y: auto !important;
+      height: 100%;
+    }
+
+    #ion-scroll-pdf .fr {
+      float: right;
+    }
+
+    .fz-small {
+      font-size: 10px;
+    }
+
+    #ion-scroll-pdf .vmiddle {
+      vertical-align: middle;
+    }
+
+    #ion-scroll-pdf .center {
+      text-align: center;
+    }
+
+    #ion-scroll-pdf .left {
+      text-align: left;
+    }
+
+    #ion-scroll-pdf .italic {
+      font-style: italic;
+    }
+
+    #ion-scroll-pdf .p0 {
+      padding: 0;
+    }
+
+    #ion-scroll-pdf .m0 {
+      margin: 0;
+    }
+
+    #ion-scroll-pdf .content {
+      font-size: 14px;
+    }
+
+    #ion-scroll-pdf .content .red-bar {
+      padding: 10px;
+      font-size: 14px;
+      color: #fff;
+      background: red;
+    }
+
+    #ion-scroll-pdf .content .content-section {
+      font-size: 14px;
+    }
+
+    #ion-scroll-pdf .content .content-section table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #000;
+    }
+
+    #ion-scroll-pdf .content .content-section table.no-border td {
+      border: none;
+    }
+
+    #ion-scroll-pdf .content .content-section table th {
+      padding: 5px;
+      border: 1px solid #000;
+    }
+
+    #ion-scroll-pdf .content .content-section table td {
+      padding: 5px;
+      border: 1px solid #000;
+    }
+
+    #ion-scroll-pdf .content .content-section table th.red {
+      background: red;
+      color: white;
+    }
+
+    #ion-scroll-pdf .content .content-section table th.grey {
+      background: grey;
+      color: white;
+    }
+
+    #ion-scroll-pdf .content .content-section table .title {
+      font-size: 14px;
+    }
+
+    #ion-scroll-pdf .content .content-section .highlight-y {
+      padding: 10px;
+      background: yellow;
+    }
+
+    #ion-scroll-pdf .content .content-section ol {
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    #ion-scroll-pdf .content .content-section ol.list-inside {
+      padding-left: 25px;
+    }
+
+    #ion-scroll-pdf .content .content-section ol.alpha li {
+      list-style-type: lower-alpha;
+    }
+
+    #ion-scroll-pdf .content .content-section ol.romawi li {
+      list-style-type: lower-roman;
+    }
+
+    #ion-scroll-pdf .content .content-section ol.decimal li {
+      list-style-type: decimal;
+    }
+
+    #ion-scroll-pdf .content .content-section li {
+      font-style: normal;
+    }
+
+    #ion-scroll-pdf .content .content-section ul.list-disk li {
+      list-style-type: disc;
+      margin-left: 15px;
+    }
+
+    #ion-scroll-pdf .content .content-section table.table-chc td[colspan="2"],
+    #ion-scroll-pdf .content .content-section table.table-chc td[colspan="3"] {
+      text-align: center;
+    }
+
+    #ion-scroll-pdf sup {
+      top: 0;
+    }
+
+    #ion-scroll-pdf .sign-text {
+      width: 90%;
+      text-align: center;
+      margin: 0;
+      margin-top: 10px;
+      border-top: 1px solid #000;
+      font-size: 10px;
+    }
+
+    #ion-scroll-pdf .footer {
+      border-top: 1px solid #000;
+      padding: 40px 0 20px;
+      margin: 0 auto 20px;
+      width: 96%;
+      font-size: 11px;
+    }
+
+    .pagebreak {
+      page-break-before: always;
+    }
+
+    #header {
+      border-bottom: 1px solid #000;
+      margin: 0 auto 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #header .logo {
+      width: 130px;
+      height: 40px;
+      background: url("../images/logo_pru.jpg") center center/100% no-repeat;
+    }
+
+    #header .head-text {}
+
+    #footer {
+      bottom: 0px
+    }
+
+    .footer-content {
+      width: 100%;
+      /* border: 2px solid orangered; */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #000;
+      padding-top: 8px;
+      margin-top: 8px;
+      font-family: 'Prusm';
+      line-height: 1.6;
+    }
+
+    /* .mid-footer {
+  display: flex;
+  flex-flow: row;
+} */
+
+    .mid-footer .wrapper {
+      display: flex;
+      flex-direction: row;
+      /* border: #000 1px solid; */
+    }
+
+    .mid-footer .wrapper .row {
+      /* border: blue 1px solid; */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mid-footer .wrapper .row .col {
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <table>
+    <thead>
+      <tr>
+        <td>
+          <div id="header">
+            <div class="logo"></div>
+            <div class="head-text fz-small">HALAMAN INI BUKAN MERUPAKAN BAGIAN DARI KONTRAK ASURANSI</div>
+          </div>
+        </td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>
+          <div id="ion-scroll-pdf">
+            <!-- MAIN CONTENT -->
+          </div>
+        </td>
+      </tr>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <td id="footer">
+          <div class="footer-content">
+            <div class="left-footer">
+              <img style="max-height:60px"
+                src="data:image/gif;base64,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" />
+            </div>
+            <div class="mid-footer">
+              <div class="wrapper">
+                <div class="row" style="margin-right: 10px;">
+                  <div class="col">Kode Agen: 00841117</div>
+                  <div class="col">17060307</div>
+                </div>
+                <div class="row">
+                  <div class="col">28-Feb-2019 20:38:36</div>
+                  <div class="col">armMf4aQ</div>
+                </div>
+              </div>
+            </div>
+            <div class="right-footer">
+              <p>SQSv2.0.0</p>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+
+  </table>
+</body>
+
+</html>

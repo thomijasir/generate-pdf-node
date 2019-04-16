@@ -1,0 +1,24 @@
+{
+  "name": "generatePdf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "back.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "atob": "^2.1.2",
+    "body-parser": "^1.18.3",
+    "btoa": "^1.2.1",
+    "express": "^4.16.4",
+    "handlebars": "^4.1.1",
+    "html-pdf": "^2.2.0",
+    "node-sass": "^4.11.0",
+    "path": "^0.12.7",
+    "puppeteer": "^1.13.0",
+    "util": "^0.11.1"
+  }
+}
